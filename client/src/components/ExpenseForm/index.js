@@ -18,8 +18,8 @@ const App = () => {
       <Form.Item label="Date">
       <DatePicker />
       </Form.Item>
-      <Form.Item label="Income description">
-        <Input placeholder="ex) Sales from 1/1-2/2" />
+      <Form.Item label="Expense description">
+        <Input placeholder="ex) Utilities" />
       </Form.Item>
       <Form.Item label="Amount in USD">
         <InputNumber 

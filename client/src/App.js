@@ -14,6 +14,7 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Income from './pages/Income';
+import Expense from './pages/Expense'
 import Nav from './components/Nav';
 
 import { StoreProvider } from './utils/GlobalState';
@@ -72,8 +73,11 @@ function App() {
                 element={<Detail />} 
               />
               <Route
-              path="income"
+              path="/income"
               element={<Income />}/>
+               <Route
+              path="/expense"
+              element={<Expense />}/>
               <Route 
                 path="*" 
                 element={<NoMatch />} 

@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <div className="container">
       <CategoryMenu />
-      {/* <ProductList /> */}
+      <ProductList />
       <Cart />
-      <IncomeForm/>
+  
     </div>
   );
 };
