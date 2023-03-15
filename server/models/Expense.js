@@ -3,10 +3,18 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const expenseSchema = new Schema({
-  name: {
+  text: {
     type: String,
-    required: true,
-    trim: true
+    trim: true,
+    required: [true, 'Describe the expense in detail']
+  },
+  amount: {
+    type: Number,
+    required: [true, 'Please add the invoice amount']
+  },
+  createAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
