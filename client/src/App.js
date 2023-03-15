@@ -13,7 +13,9 @@ import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Income from './pages/Income';
 import Nav from './components/Nav';
+
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
@@ -69,10 +71,14 @@ function App() {
                 path="/products/:id" 
                 element={<Detail />} 
               />
+              <Route
+              path="income"
+              element={<Income />}/>
               <Route 
                 path="*" 
                 element={<NoMatch />} 
               />
+            
             </Routes>
           </StoreProvider>
         </div>
