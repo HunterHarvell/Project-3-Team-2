@@ -16,6 +16,8 @@ function Signup(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
+//added business name
+        businessName: formState.businessName,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -73,6 +75,16 @@ function Signup(props) {
             name="password"
             type="password"
             id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="businessName">Business Name:</label>
+          <input
+            placeholder="Business Name"
+            name="businessName"
+            type="businessName"
+            id="businessName"
             onChange={handleChange}
           />
         </div>
