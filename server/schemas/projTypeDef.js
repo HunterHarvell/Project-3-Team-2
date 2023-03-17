@@ -6,8 +6,8 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
-    income: Income
-    expense: Expense
+    income: [Income]
+    expense: [Expense]
   }
 
   type Income {
