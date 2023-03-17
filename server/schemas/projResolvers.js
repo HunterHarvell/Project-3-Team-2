@@ -49,10 +49,10 @@ const resolvers = {
       return { token, user };
     },
 
-    addIncome: async (parent, { amount }, context) => {
+    addIncome: async (parent, { text, amount }, context) => {
       console.log(context);
       if (context.user) {
-        const addedIncome = new Order({ amount });
+        const addedIncome = new Income({ text, amount });
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { income: addedIncome },
@@ -67,10 +67,10 @@ const resolvers = {
         },
       });
     },
-    addexpense: async (parent, { amount }, context) => {
+    addexpense: async (parent, { text, amount }, context) => {
       console.log(context);
       if (context.user) {
-        const addedExpense = new Income({ amount });
+        const addedExpense = new Expense({ text, amount });
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { expense: addedExpense },
