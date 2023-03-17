@@ -1,28 +1,48 @@
+import React from 'react';
+import { Button, Form, Input,DatePicker, InputNumber } from 'antd';
+const IncomeForm = () => {
+    
+const onFinish = (values) => {
+  const incomeText = values.incomeText
+  const incomeAmount = values.incomeAmount
+  const incomeDate = values.dateString
+  console.log({incomeText, incomeAmount, incomeDate})
 
-import { Button, Form, Input, InputNumber, DatePicker } from "antd";
-import { useState } from "react";
-const App = () => {
-  const [form] = Form.useForm();
+};
+const onFinishFailed = (errorInfo) => {
+  console.log('Failed:', errorInfo);
+};
+const onChange = (date, dateString) => {
+  console.log(date, dateString);
   
-  return (
-    <Form
-      layout="vertical"
-      form={form}
-      style={{
-        maxWidth: 600,
-        padding: 20,
-        alignItems: "center",
-      }}
-    >
-      
-      <Form.Item label="Date">
-      <DatePicker />
+};
+return (
+  <Form
+    name="basic"
+    labelCol={{
+      span: 8,
+    }}
+    wrapperCol={{
+      span: 16,
+    }}
+    style={{
+      maxWidth: 600,
+    }}
+    initialValues={{
+      remember: true,
+    }}
+    onFinish={onFinish}
+    onFinishFailed={onFinishFailed}
+    autoComplete="off"
+  >
+      <Form.Item  name="incomeDate" label="Date">
+        <DatePicker onChange={onChange}/>
       </Form.Item>
-      <Form.Item label="Income description">
+      <Form.Item name="incomeText" label="Income description">
         <Input placeholder="ex) Sales from 1/1-2/2" />
       </Form.Item>
-      <Form.Item label="Amount in USD">
-        <InputNumber 
+      <Form.Item name="incomeAmount" label="Amount in USD">
+        <InputNumber
           placeholder="0.00"
           style={{ width: 200 }}
           defaultValue=""
@@ -34,10 +54,17 @@ const App = () => {
           addonAfter="$"
         />
       </Form.Item>
-      <Form.Item>
-        <Button type="primary">Submit</Button>
-      </Form.Item>
-    </Form>
-  );
+    <Form.Item
+      wrapperCol={{
+        offset: 8,
+        span: 16,
+      }}
+    >
+      <Button type="primary" htmlType="submit">
+        Submit
+      </Button>
+    </Form.Item>
+  </Form>
+)
 };
-export default App;
+export default IncomeForm;
