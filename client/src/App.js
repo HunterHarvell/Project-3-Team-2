@@ -64,7 +64,7 @@ function App() {
               path="/income"
               element={<Income />}/>
                <Route
-              path="/expense"
+              path="/expenses"
               element={<Expense />}/>
               <Route 
                 path="*" 

@@ -6,14 +6,16 @@ const IncomeForm = () => {
     const incomeText = values.incomeText;
     const incomeAmount = values.incomeAmount;
     const incomeDate = values.incomeDate.dateString;
-    console.log({ incomeText, incomeAmount, date });
+    console.log({ incomeText, incomeAmount, incomeDate });
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   const onChange = (date, dateString) => {
+    
     console.log(date, dateString);
   };
+  
   return (
     <Form
       name="basic"
