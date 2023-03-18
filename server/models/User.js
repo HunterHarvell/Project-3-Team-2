@@ -26,6 +26,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  businessName: {
+    type: String,
+    required: true,
+  },
   income: [Income.schema],
   expense: [Expense.schema]
 });

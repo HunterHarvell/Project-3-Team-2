@@ -1,5 +1,5 @@
 const { GraphQLError } = require("graphql");
-const { User, Expenses, Income } = require("../models");
+const { User, Expense, Income } = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -13,7 +13,7 @@ const resolvers = {
       return await Income.find();
     },
     expense: async () => {
-      return await Expenses.find();
+      return await Expense.find();
     },
   },
   Mutation: {
@@ -24,7 +24,6 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
-      console.log('project resolvers login', email, password)
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -68,7 +67,7 @@ const resolvers = {
         },
       });
     },
-    addexpense: async (parent, { text, amount }, context) => {
+    addExpense: async (parent, { text, amount }, context) => {
       console.log(context);
       if (context.user) {
         const addedExpense = new Expense({ text, amount });
@@ -94,7 +93,7 @@ const resolvers = {
       );
     },
     updateExpense: async (parent, { text, amount }) => {
-      return await Expenses.findByIdAndUpdate(
+      return await Expense.findByIdAndUpdate(
         text,
         { $push: { expense: amount } },
         { new: true }
@@ -102,3 +101,4 @@ const resolvers = {
     },
   },
 };
+module.exports = resolvers;

@@ -6,6 +6,7 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
+    businessName: String
     income: [Income]
     expense: [Expense]
   }
@@ -34,7 +35,7 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, businessName: String!): Auth
     login(email: String!, password: String!): Auth
     addIncome(text: String!,amount: Int!, createdAt: String!): Income
     addExpense(text: String!,amount: Int!, createdAt: String!): Expense
