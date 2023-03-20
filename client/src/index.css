@@ -1,9 +1,10 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
+  --light: #d4cfc1;
+  --grod:#ffc34d;
+  --leaf: #11b64b;
+  --mermaid: #267d9c;
+  --costal: #2e515c;
+  --clem: #f26b0a;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -21,11 +22,12 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Lexend';
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  color: var(--mermaid);
+  background-color: var(--light);
 }
 
 h1,
@@ -34,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Lexend';
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
@@ -42,49 +44,59 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  font-family: 'Pacifico', cursive;
 }
 
 h2 {
   font-size: 2rem;
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
 }
 
 h3 {
   font-size: 1.75rem;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 500;
 }
 
 h4 {
   font-size: 1.5rem;
+  font-family: 'Lexend', sans-serif;
 }
 
 h5 {
   font-size: 1.25rem;
+  font-family: 'Lexend', sans-serif;
 }
 
 h6 {
   font-size: 1rem;
+  font-family: 'Lexend', sans-serif;
 }
 
 p {
+  color: var(--secondary);
   font-size: 1.1rem;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 100;
   margin-top: 0;
 }
 
 a {
-  color: var(--tertiary);
+  color: var(--leaf);
   text-decoration: none;
-  font-weight: bold;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: wavy underline;
 }
 
 header {
-  background: var(--primary);
+  background: white;
 }
 
 header a {
-  color: var(--light);
+  color: var(--mermaid);
 }
 
 button {
@@ -96,7 +108,8 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  color: var(--costal);
+  background-color: var(--grod);
 }
 
 button:hover {
@@ -123,15 +136,15 @@ form {
 input {
   font-size: 1rem;
   padding: 0.25rem;
-  border: 1px solid var(--dark);
+  border: 2px solid var(--costal);
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
 }
 
 input:focus {
-  border: 1px solid var(--secondary);
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+  border: 1px solid var(--costal);
+  box-shadow: 0 0 .25rem var(--costal);
 }
 
 .container {
