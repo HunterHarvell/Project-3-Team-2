@@ -1,11 +1,27 @@
-
 import { Button, Form, Input, InputNumber, DatePicker } from "antd";
 import { useState } from "react";
 const App = () => {
   const [form] = Form.useForm();
-  
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  //   //Can directly call props here
+  // };
+
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
+  const onFinish = (e) => {
+    console.log(e);
+  };
+
+  const onFinishFailed = (e) => {
+    console.log("Failed:", e);
+  };
+
   return (
     <Form
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
       layout="vertical"
       form={form}
       style={{
@@ -14,15 +30,14 @@ const App = () => {
         alignItems: "center",
       }}
     >
-      
       <Form.Item label="Date">
-      <DatePicker />
+        <DatePicker />
       </Form.Item>
       <Form.Item label="Expense description">
         <Input placeholder="ex) Utilities" />
       </Form.Item>
       <Form.Item label="Amount in USD">
-        <InputNumber 
+        <InputNumber
           placeholder="0.00"
           style={{ width: 200 }}
           defaultValue=""
@@ -35,7 +50,9 @@ const App = () => {
         />
       </Form.Item>
       <Form.Item>
-        <Button type="primary">Submit</Button>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
       </Form.Item>
     </Form>
   );
