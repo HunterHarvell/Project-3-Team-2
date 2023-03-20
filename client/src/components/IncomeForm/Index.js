@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Form, Input, DatePicker, InputNumber } from "antd";
 const IncomeForm = () => {
-  const onFinish = (e) => {
-    console.log(e);
+  const onFinish = (values) => {
+    console.log({ values });
     // const incomeText = values.incomeText;
     // const incomeAmount = values.incomeAmount;
     // const incomeDate = values.incomeDate.dateString;
@@ -34,13 +34,13 @@ const IncomeForm = () => {
       }}
       autoComplete="off"
     >
-      <Form.Item name="incomeDate" label="Date">
+      <Form.Item name={"createdAt"} label="Date">
         <DatePicker onChange={onChange} />
       </Form.Item>
-      <Form.Item name="incomeText" label="Income description">
+      <Form.Item name={"text"} label="Income description">
         <Input placeholder="ex) Sales from 1/1-2/2" />
       </Form.Item>
-      <Form.Item name="incomeAmount" label="Amount in USD">
+      <Form.Item name={"amount"} label="Amount in USD">
         <InputNumber
           placeholder="0.00"
           style={{ width: 200 }}
