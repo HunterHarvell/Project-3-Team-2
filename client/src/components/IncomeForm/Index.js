@@ -37,7 +37,16 @@ const IncomeForm = () => {
       <Form.Item name={"createdAt"} label="Date">
         <DatePicker onChange={onChange} />
       </Form.Item>
-      <Form.Item name={"text"} label="Income description">
+      <Form.Item
+        rules={[
+          {
+            required: true,
+            message: "Income Description is Required",
+          },
+        ]}
+        name={"text"}
+        label="Income description"
+      >
         <Input placeholder="ex) Sales from 1/1-2/2" />
       </Form.Item>
       <Form.Item name={"amount"} label="Amount in USD">

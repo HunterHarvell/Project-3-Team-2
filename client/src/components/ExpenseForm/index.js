@@ -2,21 +2,12 @@ import React from "react";
 import { Button, Form, Input, InputNumber, DatePicker } from "antd";
 // import { useState } from "react";
 const App = () => {
-  // const [form] = Form.useForm();
-  // const onFinish = (values) => {
-  //   console.log("Success:", values);
-  //   //Can directly call props here
-  // };
-
-  // const onFinishFailed = (errorInfo) => {
-  //   console.log("Failed:", errorInfo);
-  // };
-  const onFinish = (e) => {
-    console.log(e);
+  const onFinish = (values) => {
+    console.log({ values });
   };
 
-  const onFinishFailed = (e) => {
-    console.log("Failed:", e);
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   const onChange = (date, dateString) => {
@@ -35,13 +26,22 @@ const App = () => {
         alignItems: "center",
       }}
     >
-      <Form.Item name="expenseDate" label="Date">
+      <Form.Item name={"createdAt"} label="Date">
         <DatePicker onChange={onChange} />
       </Form.Item>
-      <Form.Item name="expenseText" label="Expense description">
+      <Form.Item
+        rules={[
+          {
+            required: true,
+            message: "Expense Description is Required",
+          },
+        ]}
+        name={"text"}
+        label="Expense description"
+      >
         <Input placeholder="ex) Utilities" />
       </Form.Item>
-      <Form.Item name="expenseAmount" label="Amount in USD">
+      <Form.Item name={"amount"} label="Amount in USD">
         <InputNumber
           placeholder="0.00"
           style={{ width: 200 }}
