@@ -1,23 +1,24 @@
 import React from "react";
 import { Button, Form, Input, DatePicker, InputNumber } from "antd";
 const IncomeForm = () => {
-  const onFinish = (values) => {
-    console.log(values);
-    const incomeText = values.incomeText;
-    const incomeAmount = values.incomeAmount;
-    const incomeDate = values.incomeDate.dateString;
-    console.log({ incomeText, incomeAmount, incomeDate });
+  const onFinish = (e) => {
+    console.log(e);
+    // const incomeText = values.incomeText;
+    // const incomeAmount = values.incomeAmount;
+    // const incomeDate = values.incomeDate.dateString;
+    // console.log({ incomeText, incomeAmount, incomeDate });
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   const onChange = (date, dateString) => {
-    
     console.log(date, dateString);
   };
-  
+
   return (
     <Form
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
       name="basic"
       labelCol={{
         span: 8,
@@ -31,8 +32,6 @@ const IncomeForm = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item name="incomeDate" label="Date">
