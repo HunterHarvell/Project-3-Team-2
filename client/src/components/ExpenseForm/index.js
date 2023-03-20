@@ -1,7 +1,8 @@
+import React from "react";
 import { Button, Form, Input, InputNumber, DatePicker } from "antd";
-import { useState } from "react";
+// import { useState } from "react";
 const App = () => {
-  const [form] = Form.useForm();
+  // const [form] = Form.useForm();
   // const onFinish = (values) => {
   //   console.log("Success:", values);
   //   //Can directly call props here
@@ -18,25 +19,29 @@ const App = () => {
     console.log("Failed:", e);
   };
 
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
   return (
     <Form
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       layout="vertical"
-      form={form}
+      name="basic"
       style={{
         maxWidth: 600,
         padding: 20,
         alignItems: "center",
       }}
     >
-      <Form.Item label="Date">
-        <DatePicker />
+      <Form.Item name="expenseDate" label="Date">
+        <DatePicker onChange={onChange} />
       </Form.Item>
-      <Form.Item label="Expense description">
+      <Form.Item name="expenseText" label="Expense description">
         <Input placeholder="ex) Utilities" />
       </Form.Item>
-      <Form.Item label="Amount in USD">
+      <Form.Item name="expenseAmount" label="Amount in USD">
         <InputNumber
           placeholder="0.00"
           style={{ width: 200 }}
