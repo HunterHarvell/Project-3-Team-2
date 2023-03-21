@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const { Schema } = mongoose;
 
@@ -12,10 +13,11 @@ const expenseSchema = new Schema({
     type: Number,
     required: [true, 'Please add the invoice amount']
   },
-  createAt: {
+  createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
 });
 
 const Expense = mongoose.model('Expense', expenseSchema);

@@ -49,7 +49,6 @@ const IncomeForm = () => {
           min="0"
           max="100000000000000000"
           step="0.01"
-          //   onChange={onChange}
           stringMode
           addonAfter="$"
         />
