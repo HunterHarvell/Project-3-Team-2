@@ -50,14 +50,17 @@ const resolvers = {
     },
 
     addIncome: async (parent, { text, amount }, context) => {
-      console.log(context);
+      console.log("USER ID", context?.user?._id);
       if (context.user) {
         const addedIncome = new Income({ text, amount });
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { income: addedIncome },
         });
-
+        // await User.findByIdAndUpdate("6415f8a56678d1979032fac4", {
+        //   $push: { income: addedIncome },
+        // });
+        console.log("ADDING INCOME", addedIncome);
         return addedIncome;
       }
 

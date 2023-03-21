@@ -1,12 +1,24 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_INCOME } from "../../utils/mutations";
 import { Button, Form, Input, DatePicker, InputNumber } from "antd";
 const IncomeForm = () => {
-  const onFinish = (values) => {
+  const [addIncome, { error }] = useMutation(ADD_INCOME);
+  console.log("income form error", error);
+  const onFinish = async (values) => {
     console.log(values);
     const incomeText = values.incomeText;
-    const incomeAmount = values.incomeAmount;
-    const incomeDate = values.incomeDate.dateString;
-    console.log({ incomeText, incomeAmount, incomeDate });
+    const incomeAmount = parseInt(values.incomeAmount);
+
+    console.log({ incomeText, incomeAmount });
+
+    const mutationResponse = await addIncome({
+      variables: {
+        text: incomeText,
+        amount: incomeAmount,
+      },
+    });
+    console.log(mutationResponse);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -35,9 +47,9 @@ const IncomeForm = () => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item name="incomeDate" label="Date">
+        {/* <Form.Item name="incomeDate" label="Date">
           <DatePicker onChange={onChange} />
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item name="incomeText" label="Income description">
           <Input placeholder="ex) Sales from 1/1-2/2" />
         </Form.Item>
