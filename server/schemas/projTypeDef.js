@@ -38,8 +38,10 @@ const typeDefs = `#graphql
     login(email: String!, password: String!): Auth
     addIncome(text: String!,amount: Int!): Income
     addExpense(text: String!,amount: Int!): Expense
-    updateIncome(amount: Int!, createdAt: String!): Income
-    updateExpense(amount: Int!, createdAt: String!):Expense
+    updateIncome(amount: Int!, text: String!): Income
+    updateExpense(amount: Int!, text: String!):Expense
+    deleteIncome(text: String!): Income
+    deleteExpense(text: String!): Expense
     
   }
 `;
