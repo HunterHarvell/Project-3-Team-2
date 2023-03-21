@@ -40,8 +40,8 @@ const typeDefs = `#graphql
     addExpense(text: String!,amount: Int!): Expense
     updateIncome(amount: Int!, text: String!): Income
     updateExpense(amount: Int!, text: String!):Expense
-    deleteIncome(text: String!): Income
-    deleteExpense(text: String!): Expense
+    deleteIncome(amount: Int!,text: String!): Income
+    deleteExpense(amount: Int!,text: String!): Expense
     
   }
 `;
