@@ -102,6 +102,20 @@ const resolvers = {
         { new: true }
       );
     },
+    deleteIncome: async (parent, { text }) => {
+      return await Income.findByIdAndUpdate(
+        text,
+        { $pull: { income: amount } },
+        { new: true }
+      );
+    },
+    deleteExpense: async (parent, { text }) => {
+      return await Expense.findByIdAndUpdate(
+        text,
+        { $pull: { expense: amount } },
+        { new: true }
+      );
+    },
   },
 };
 module.exports = resolvers;
