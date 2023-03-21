@@ -1,43 +1,74 @@
-
 import { Button, Form, Input, InputNumber, DatePicker } from "antd";
-import { useState } from "react";
-const App = () => {
-  const [form] = Form.useForm();
-  
+import { useMutation } from "@apollo/client";
+import { ADD_EXPENSE } from "../../utils/mutations";
+const ExpenseForm = () => {
+  const [addExpense, { error }] = useMutation(ADD_EXPENSE);
+  console.log("ADD EXPENSE ERROR", error);
+  const onFinish = async (values) => {
+    console.log(values);
+    const expenseText = values.expenseText;
+    const expenseAmount = parseInt(values.expenseAmount);
+
+    console.log({ expenseText, expenseAmount });
+
+    const mutationResponse = await addExpense({
+      variables: {
+        text: expenseText,
+        amount: expenseAmount,
+      },
+    });
+    console.log(mutationResponse);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
   return (
-    <Form
-      layout="vertical"
-      form={form}
-      style={{
-        maxWidth: 600,
-        padding: 20,
-        alignItems: "center",
-      }}
-    >
-      
-      <Form.Item label="Date">
-      <DatePicker />
-      </Form.Item>
-      <Form.Item label="Expense description">
-        <Input placeholder="ex) Utilities" />
-      </Form.Item>
-      <Form.Item label="Amount in USD">
-        <InputNumber 
-          placeholder="0.00"
-          style={{ width: 200 }}
-          defaultValue=""
-          min="0"
-          max="100000000000000000"
-          step="0.01"
-          //   onChange={onChange}
-          stringMode
-          addonAfter="$"
-        />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary">Submit</Button>
-      </Form.Item>
-    </Form>
+    <div>
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        style={{
+          maxWidth: 600,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item name="expenseText" label="Expense description">
+          <Input placeholder="ex) Sales from 1/1-2/2" />
+        </Form.Item>
+        <Form.Item name="expenseAmount" label="Amount in USD">
+          <InputNumber
+            placeholder="0.00"
+            style={{ width: 200 }}
+            defaultValue=""
+            min="0"
+            max="100000000000000000"
+            step="0.01"
+            stringMode
+            addonAfter="$"
+          />
+        </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
-export default App;
+export default ExpenseForm;

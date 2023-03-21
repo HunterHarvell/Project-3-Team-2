@@ -42,3 +42,12 @@ export const ADD_INCOME = gql`
     }
   }
 `;
+
+export const ADD_EXPENSE = gql`
+  mutation addExpense($text: String!, $amount: Int!) {
+    addExpense(text: $text, amount: $amount) {
+      amount
+      text
+    }
+  }
+`;
