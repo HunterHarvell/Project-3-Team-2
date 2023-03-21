@@ -102,14 +102,14 @@ const resolvers = {
         { new: true }
       );
     },
-    deleteIncome: async (parent, { text }) => {
+    deleteIncome: async (parent, { text, amount }) => {
       return await Income.findByIdAndUpdate(
         text,
         { $pull: { income: amount } },
         { new: true }
       );
     },
-    deleteExpense: async (parent, { text }) => {
+    deleteExpense: async (parent, { text, amount }) => {
       return await Expense.findByIdAndUpdate(
         text,
         { $pull: { expense: amount } },
