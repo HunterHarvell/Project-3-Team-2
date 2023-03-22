@@ -103,12 +103,32 @@ const resolvers = {
       );
     },
     deleteIncome: async (parent, { text, amount }) => {
+
       return await Income.findByIdAndUpdate(
         text,
         { $pull: { income: amount } },
         { new: true }
       );
     },
+
+    // deleteIncome: async (parent, { text }, context) => {
+    //   if (context.user) {
+    //     const deletedIncome = await Income.findOneAndDelete({
+    //       text,
+    //       income: context.user.username,
+    //     });
+
+    //     await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { income: deletedIncome._id } }
+    //     );
+
+    //     return deletedIncome;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
+
+
     deleteExpense: async (parent, { text, amount }) => {
       return await Expense.findByIdAndUpdate(
         text,
