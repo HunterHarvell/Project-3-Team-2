@@ -7,32 +7,32 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
+          <ul className="mx-1">
             <Link to="/income">Income</Link>
-          </li>
-          <li className="mx-1">
+          </ul>
+          <ul className="mx-1">
             <Link to="/expenses">Expenses</Link>
-          </li>
-          <li className="mx-1">
+          </ul>
+          <ul className="mx-1">
             <Link to="/reports">Reports</Link>
-          </li>
-          <li className="mx-1">
+          </ul>
+          <ul className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
-          </li>
+          </ul>
         </ul>
       );
     } else {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
+          <ul className="mx-1">
             <Link to="/signup">Signup</Link>
-          </li>
-          <li className="mx-1">
+          </ul>
+          <ul className="mx-1">
             <Link to="/login">Login</Link>
-          </li>
+          </ul>
         </ul>
       );
     }
@@ -42,7 +42,9 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="money face">💸</span>
+          <span role="img" aria-label="money face">
+            💸
+          </span>
           SideHussle
         </Link>
       </h1>

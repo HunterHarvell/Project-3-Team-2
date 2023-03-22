@@ -1,20 +1,21 @@
-import { Button, Form, Input, InputNumber, DatePicker } from "antd";
+import React from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_EXPENSE } from "../../utils/mutations";
-const ExpenseForm = () => {
-  const [addExpense, { error }] = useMutation(ADD_EXPENSE);
-  console.log("ADD EXPENSE ERROR", error);
+import { ADD_INCOME } from "../../utils/mutations";
+import { Button, Form, Input, InputNumber, Table, Modal} from "antd";
+const IncomeForm = () => {
+  const [addIncome, { error }] = useMutation(ADD_INCOME);
+  console.log("income form error", error);
   const onFinish = async (values) => {
     console.log(values);
-    const expenseText = values.expenseText;
-    const expenseAmount = parseInt(values.expenseAmount);
+    const incomeText = values.incomeText;
+    const incomeAmount = parseInt(values.incomeAmount);
 
-    console.log({ expenseText, expenseAmount });
+    console.log({ incomeText, incomeAmount });
 
-    const mutationResponse = await addExpense({
+    const mutationResponse = await addIncome({
       variables: {
-        text: expenseText,
-        amount: expenseAmount,
+        text: incomeText,
+        amount: incomeAmount,
       },
     });
     console.log(mutationResponse);
@@ -33,7 +34,9 @@ const ExpenseForm = () => {
           span: 16,
         }}
         style={{
-          maxWidth: 600,
+          // maxWidth: 600,
+          paddingTop: 20,
+
         }}
         initialValues={{
           remember: true,
@@ -42,10 +45,10 @@ const ExpenseForm = () => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item name="expenseText" label="Expense description">
+        <Form.Item name="incomeText" label="Income description">
           <Input placeholder="ex) Sales from 1/1-2/2" />
         </Form.Item>
-        <Form.Item name="expenseAmount" label="Amount in USD">
+        <Form.Item name="incomeAmount" label="Amount in USD">
           <InputNumber
             placeholder="0.00"
             style={{ width: 200 }}
@@ -71,4 +74,4 @@ const ExpenseForm = () => {
     </div>
   );
 };
-export default ExpenseForm;
+export default IncomeForm;
