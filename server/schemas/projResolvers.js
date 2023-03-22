@@ -7,7 +7,9 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const resolvers = {
   Query: {
     user: async () => {
+      console.log("hitting user query")
       return await User.find();
+      
     },
     income: async () => {
       return await Income.find();
