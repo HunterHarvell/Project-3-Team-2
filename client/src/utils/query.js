@@ -27,3 +27,19 @@ export const GET_EXPENSE = gql`
     }
   }
 `;
+export const DELETE_INCOME = gql`
+  query expense {
+    expense {
+      text
+      amount
+    }
+  }
+`;
+export const DELETE_EXPENSE = gql`
+  query income {
+    income {
+      text
+      amount
+    }
+  }
+`;

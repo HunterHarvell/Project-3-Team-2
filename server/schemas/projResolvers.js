@@ -50,14 +50,17 @@ const resolvers = {
     },
 
     addIncome: async (parent, { text, amount }, context) => {
-      console.log(context);
+      console.log("USER ID", context?.user?._id);
       if (context.user) {
         const addedIncome = new Income({ text, amount });
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { income: addedIncome },
         });
-
+        // await User.findByIdAndUpdate("6415f8a56678d1979032fac4", {
+        //   $push: { income: addedIncome },
+        // });
+        console.log("ADDING INCOME", addedIncome);
         return addedIncome;
       }
 
@@ -96,6 +99,20 @@ const resolvers = {
       return await Expense.findByIdAndUpdate(
         text,
         { $push: { expense: amount } },
+        { new: true }
+      );
+    },
+    deleteIncome: async (parent, { text, amount }) => {
+      return await Income.findByIdAndUpdate(
+        text,
+        { $pull: { income: amount } },
+        { new: true }
+      );
+    },
+    deleteExpense: async (parent, { text, amount }) => {
+      return await Expense.findByIdAndUpdate(
+        text,
+        { $pull: { expense: amount } },
         { new: true }
       );
     },
