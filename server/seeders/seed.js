@@ -1,17 +1,17 @@
-const db = require('../config/connection');
-const { User, Income } = require('../models');
-const userSeeds = require('./userSeeds.json');
-const IncomeSeeds = require('./incomeSeeds.json');
+const db = require("../config/connection");
+const { User, Income } = require("../models");
+const userSeeds = require("./userSeeds.json");
+const IncomeSeeds = require("./incomeSeeds.json");
 
-db.once('open', async () => {
+db.once("open", async () => {
   try {
     await Income.deleteMany({});
     await User.deleteMany({});
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < incomeSeeds.length; i++) {
-      const { text, amount } = await Income.create(incomeSeeds[i]);
+    for (let i = 0; i < IncomeSeeds.length; i++) {
+      const { text, amount } = await Income.create(IncomeSeeds[i]);
       const user = await User.findOneAndUpdate(
         { income: text },
         {
@@ -26,6 +26,6 @@ db.once('open', async () => {
     process.exit(1);
   }
 
-  console.log('all done!');
+  console.log("all done!");
   process.exit(0);
 });
