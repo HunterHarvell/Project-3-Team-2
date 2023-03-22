@@ -10,10 +10,10 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < incomeSeeds.length; i++) {
-      const { text, amount } = await Income.create(incomeSeeds[i]);
+    for (let i = 0; i < IncomeSeeds.length; i++) {
+      const { text, amount } = await Income.create(IncomeSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { income: text },
+        { income: amount },
         {
           $addToSet: {
             income: text,
