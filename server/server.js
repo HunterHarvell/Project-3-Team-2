@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
@@ -53,6 +53,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
     });
   });
 };
-
 // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
