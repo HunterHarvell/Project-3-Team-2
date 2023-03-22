@@ -1,36 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-import Home from './pages/Home';
+import Home from "./pages/Home";
 // import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Income from './pages/Income';
-import Expense from './pages/Expense'
-import Nav from './components/Nav';
+import NoMatch from "./pages/NoMatch";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Income from "./pages/Income";
+import Expense from "./pages/Expense";
+import Nav from "./components/Nav";
+import Report from "./pages/Report";
 
 // import { StoreProvider } from './utils/GlobalState';
 // import Success from './pages/Success';
 // import OrderHistory from './pages/OrderHistory';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -46,32 +47,16 @@ function App() {
       <Router>
         <div>
           {/* <StoreProvider> */}
-            <Nav />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route
-              path="/income"
-              element={<Income />}/>
-               <Route
-              path="/expenses"
-              element={<Expense />}/>
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
-              />
-            
-            </Routes>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/expenses" element={<Expense />} />
+            <Route path="/reports" element={<Report />} />
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
           {/* </StoreProvider> */}
         </div>
       </Router>
