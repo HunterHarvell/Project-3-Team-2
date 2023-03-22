@@ -1,12 +1,12 @@
 import React from "react";
 import { Table } from "antd";
-const IncomeList = () => {
+const ExpenseList = () => {
   const onClick = () => {
     console.log("onClick");
   };
   const columns = [
     {
-      title: "Income Description",
+      title: "Expense Description",
       dataIndex: "text",
     },
     {
@@ -29,37 +29,37 @@ const IncomeList = () => {
   const data = [
     {
       key: "1",
-      text: "Income A",
+      text: "Expense A",
       amount: 32,
       createdAt: "2-13-2023",
     },
     {
       key: "2",
-      text: "Income B",
+      text: "Expense B",
       amount: 42,
       createdAt: "3-12-2022",
     },
     {
       key: "3",
-      text: "Income C",
+      text: "Expense C",
       amount: 44,
       createdAt: "4-20-2021",
     },
     {
       key: "5",
-      text: "Income D",
+      text: "Expense D",
       amount: 200,
       createdAt: "3-22-2021",
     },
     {
       key: "6",
-      text: "Income E",
+      text: "Expense E",
       amount: 3,
       createdAt: "3-22-2021",
     },
     {
       key: "7",
-      text: "Income F",
+      text: "Expense F",
       amount: 100,
       createdAt: "3-22-2021",
     },
@@ -71,7 +71,7 @@ const IncomeList = () => {
   return (
     //This table will create new pagnation if there are more than 10 items//
     <div>
-      <h2>Income List</h2>
+      <h2>Expense List</h2>
       <Table
         style={{
           // maxWidth: 600,
@@ -81,8 +81,8 @@ const IncomeList = () => {
         dataSource={data}
         onChange={onChange}
       />
-      <h2>Total Income</h2>
+      <h2>Total Expense</h2>
     </div>
   );
 };
-export default IncomeList;
+export default ExpenseList;

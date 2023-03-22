@@ -63,7 +63,9 @@ const ExpenseForm = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button   style={{ background: "#ffc34d", borderColor: "#ffc34d" }}
+            type="default"
+            htmlType="submit">
             Submit
           </Button>
         </Form.Item>
