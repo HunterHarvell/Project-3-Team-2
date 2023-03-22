@@ -28,7 +28,7 @@ const typeDefs = `#graphql
 
   type Query {
    
-    user: User
+    user: [User]
     income(amount: Int!): Income
     expense(amount: Int!): Expense
   }

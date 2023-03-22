@@ -8,7 +8,9 @@ const resolvers = {
   Query: {
     user: async () => {
       console.log("hitting user query")
-      return await User.find();
+      const user = await User.find()
+      console.log({user})
+      return user;
       
     },
     income: async () => {
