@@ -24,16 +24,17 @@ AS A SMALL BUSINESS OWNER OR SELF EMPLOYED BUSINESS PERSON I want to be able to 
 
 ## Install
 
-For client dependencies we installed:
-For server dependencies, we installed dontenv package to use environmental variable
-Install `Mongoose` `MongoDB` `React` `NodeServer` `CompassDB` `Nodemon` `react-dom` `graphql`
+For client & dependencies we installed:
+`Mongoose` `MongoDB` `React` `NodeServer` `CompassDB` `Nodemon` `react-dom` `graphql`
 
 ## Contribution
 
 This assignment was worked on by students: [Haein Kim](https://github.com/hayni100) on the Front End Development, [Rodd Azad](https://github.com/roddazad) on the Back End Development, [Hunter Harvell](https://github.com/HunterHarvell) on the Back End Development, [Genevieve Ferrari](https://github.com/gjferrari) on the Front End Development, and [Marta Wambaugh](https://github.com/mwambaugh) on Front End Development. With the support of our teaching assistant's and tutors, the students also used universal resources such as YouTube, GitHub.com, StackOverflow.com, and our class resources. Many thanks to those who continue to support our learning in the technological community.
 
 ## Testing
-For our SideHustle application we tested our code 
+
+For our SideHustle application we tested our code with Graphql Sandbox.
+
 ## Questions
 
 Please reach out to our SideHustle though their GitHub or via E-mail with any questions or concerns you may have!<br>
@@ -68,7 +69,7 @@ MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https
 
 ## Deployed
 
-[Click-Here-For-Our-Live-URL]<br/>
+[Click-Here-For-Our-Live-URL](https://arcane-dusk-42730.herokuapp.com/)<br/>
 [Click-Here-For-Our-GitHub-Repository](https://github.com/HunterHarvell/Project-3-Team-2/issues)<br/>
 
 ## Project Requirements
