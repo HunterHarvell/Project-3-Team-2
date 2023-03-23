@@ -4,7 +4,12 @@ import { ADD_EXPENSE } from "../../utils/mutations";
 const ExpenseForm = () => {
   const [addExpense, { error }] = useMutation(ADD_EXPENSE);
   console.log("ADD EXPENSE ERROR", error);
+
+  const [form] = Form.useForm();
+
   const onFinish = async (values) => {
+    resetPage();
+
     console.log(values);
     const expenseText = values.expenseText;
     const expenseAmount = parseInt(values.expenseAmount);
@@ -17,15 +22,18 @@ const ExpenseForm = () => {
         amount: expenseAmount,
       },
     });
+    form.resetFields();
     console.log(mutationResponse);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const resetPage = () => {window.location.reload();} 
   return (
     <div>
       <h2>Log your expenses here</h2>
       <Form
+      form={form}
         name="basic"
         labelCol={{
           span: 8,

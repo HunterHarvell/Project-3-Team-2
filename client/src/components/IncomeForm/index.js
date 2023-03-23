@@ -5,7 +5,11 @@ import { Button, Form, Input, InputNumber, Modal } from "antd";
 const IncomeForm = () => {
   const [addIncome, { error }] = useMutation(ADD_INCOME);
   console.log("income form error", error);
+
+  const [form] = Form.useForm();
+  
   const onFinish = async (values) => {
+    resetPage();
     console.log(values);
     const incomeText = values.incomeText;
     const incomeAmount = parseInt(values.incomeAmount);
@@ -18,8 +22,14 @@ const IncomeForm = () => {
         amount: incomeAmount,
       },
     });
+    form.resetFields();
     console.log(mutationResponse);
   };
+
+  const resetPage = () => {
+    window.location.reload();
+  };
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -27,6 +37,7 @@ const IncomeForm = () => {
     <div>
       <h2>Log your Incomes here</h2>
       <Form
+        form={form}
         name="basic"
         // layout="vertical"
         labelCol={{
