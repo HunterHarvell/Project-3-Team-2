@@ -7,22 +7,27 @@ import { GET_INCOME } from "../../utils/query";
 
 const IncomeList = () => {
   const { data } = useQuery(GET_INCOME);
-        console.log(data)
+  console.log(data);
   const userData = data?.singleUser || [];
   console.log("client income data", userData);
-     const incomeList = userData.income
-console.log(incomeList)
-   
-    const TableData = (incomeList) => {
-        
-    }
-  // {
-  //           key: "1",
-  //           text: "Income A",
-  //           amount: 32,
-  //           createdAt: "2-13-2023",
-  //         },
+  const incomeList = userData.income;
 
+  let originalIncomeArray = incomeList;
+
+  console.log("income array", originalIncomeArray);
+
+  let tableArray = originalIncomeArray?.map((item) => {
+    for (var i = 0; i < originalIncomeArray.length; i++) {
+    }
+    return {
+      key: item.createdAt,
+      text: item.text,
+      amount: item.amount,
+      createdAt: item.createdAt,
+    };
+  });
+  
+  console.log(tableArray);
   const deleteIncome = () => {
     console.log("delete button clicked");
   };
@@ -47,44 +52,7 @@ console.log(incomeList)
       render: () => <button onClick={deleteIncome}>Delete</button>,
     },
   ];
-  //   const incomeData = [
-  //     {
-  //       key: "1",
-  //       text: "Income A",
-  //       amount: 32,
-  //       createdAt: "2-13-2023",
-  //     },
-  //     {
-  //       key: "2",
-  //       text: "Income B",
-  //       amount: 42,
-  //       createdAt: "3-12-2022",
-  //     },
-  //     {
-  //       key: "3",
-  //       text: "Income C",
-  //       amount: 44,
-  //       createdAt: "4-20-2021",
-  //     },
-  //     {
-  //       key: "5",
-  //       text: "Income D",
-  //       amount: 200,
-  //       createdAt: "3-22-2021",
-  //     },
-  //     {
-  //       key: "6",
-  //       text: "Income E",
-  //       amount: 3,
-  //       createdAt: "3-22-2021",
-  //     },
-  //     {
-  //       key: "7",
-  //       text: "Income F",
-  //       amount: 100,
-  //       createdAt: "3-22-2021",
-  //     },
-  //   ];
+  
   const onChange = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
   };
@@ -99,7 +67,7 @@ console.log(incomeList)
           paddingTop: 20,
         }}
         columns={columns}
-        dataSource={data}
+        dataSource={tableArray}
         onChange={onChange}
       />
       <h2>Total Income</h2>
