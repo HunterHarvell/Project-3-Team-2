@@ -1,8 +1,26 @@
 import { Button, Modal, Card, Space } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_INCOME } from "../../utils/query";
 const TotalIncomeModal = () => {
   const [open, setOpen] = useState(false);
+  const { data } = useQuery(GET_INCOME);
+  console.log(data);
+  const userData = data?.singleUser || [];
+  console.log("client income data", userData);
+  const incomeList = userData.income;
+
+   let originalIncomeArray = incomeList;
+
+  console.log("income array", originalIncomeArray);
+
+  const sum = originalIncomeArray?.reduce((accumulator, object) => {
+    return accumulator + object.amount;
+  }, 0);
+
+  console.log(sum);
+
   return (
     <div
       style={{
@@ -47,7 +65,7 @@ const TotalIncomeModal = () => {
         >
           <Card size="large">
             <h2>Total Income =</h2>
-            <h1>20,000 $</h1>
+            <h1>{sum}$</h1>
           </Card>
         </Space>
       </Modal>
