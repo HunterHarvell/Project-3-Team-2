@@ -16,7 +16,7 @@
 
 ## Description
 
-This project features...<br/>
+This project is a fantastic user-focused MERN app for a small or self employed business person who wants to be able to track their SideHussle income & expenses to estimate budget and reach their business goals.<br/>
 
 ## User Story
 
@@ -24,14 +24,16 @@ AS A SMALL BUSINESS OWNER OR SELF EMPLOYED BUSINESS PERSON I want to be able to 
 
 ## Install
 
+For client dependencies we installed:
+For server dependencies, we installed dontenv package to use environmental variable
+Install `Mongoose` `MongoDB` `React` `NodeServer` `CompassDB` `Nodemon` `react-dom` `graphql`
+
 ## Contribution
 
-## Usage
-
-This Side Hustle App is intended to aid self employeed inviduals and small businesses owners...
+This assignment was worked on by students: [Haein Kim](https://github.com/hayni100) on the Front End Development, [Rodd Azad](https://github.com/roddazad) on the Back End Development, [Hunter Harvell](https://github.com/HunterHarvell) on the Back End Development, [Genevieve Ferrari](https://github.com/gjferrari) on the Front End Development, and [Marta Wambaugh](https://github.com/mwambaugh) on Front End Development. With the support of our teaching assistant's and tutors, the students also used universal resources such as YouTube, GitHub.com, StackOverflow.com, and our class resources. Many thanks to those who continue to support our learning in the technological community.
 
 ## Testing
-
+For our SideHustle application we tested our code 
 ## Questions
 
 Please reach out to our SideHustle though their GitHub or via E-mail with any questions or concerns you may have!<br>
@@ -41,12 +43,12 @@ roddazad@gmail.com<br/>
 [Rodd Azad's GitHub](https://github.com/roddazad)<br/>
 
 Haein Kim<br/>
-""<br/>
+hayni100@gmail.com<br/>
 [Haein Kim's GitHub](https://github.com/hayni100)<br/>
 
 Hunter Harvell<br/>
 hunterharvell95@gmail.com<br/>
-[Hunter Harvell's](https://github.com/nrose19)<br/>
+[Hunter Harvell's](https://github.com/HunterHarvell)<br/>
 
 Marta Wambaugh<br/>
 marwambaugh@gmail.com <br/>
@@ -58,6 +60,7 @@ genferrari@gmail.com<br/>
 
 # Visuals
 
+- [Screenshot of Landing Page]() _ [Screenshot of Login Page]() _ [Screenshot of Reports Page]() _ [Screenshot of Expenses Page]() _ [Screenshot of Income Page]() \* [Screenshot of Signup Page]()
 
 ## License
 
