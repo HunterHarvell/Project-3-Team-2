@@ -17,6 +17,7 @@ import Income from "./pages/Income";
 import Expense from "./pages/Expense";
 import Nav from "./components/Nav";
 import Report from "./pages/Report";
+import Jumbotron from "./components/Jumbotron";
 
 // import { StoreProvider } from './utils/GlobalState';
 // import Success from './pages/Success';
