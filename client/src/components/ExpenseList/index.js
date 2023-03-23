@@ -1,9 +1,26 @@
 import React from "react";
 import { Table } from "antd";
+import { useQuery } from "@apollo/client";
+import { GET_EXPENSE } from "../../utils/query";
 const ExpenseList = () => {
-  const onClick = () => {
-    console.log("onClick");
-  };
+  const { data } = useQuery(GET_EXPENSE);
+  console.log(data);
+  const userData = data?.singleUser || [];
+  const expenseList = userData.expense;
+
+  let originalExpenseArray = expenseList;
+  console.log("expense array: ", originalExpenseArray);
+
+  let tableArray = originalExpenseArray?.map((item) => {
+ 
+    return {
+      key: item.createdAt,
+      text: item.text,
+      amount: item.amount,
+      createdAt: item.createdAt,
+    };
+  });
+
   const columns = [
     {
       title: "Expense Description",
@@ -23,10 +40,9 @@ const ExpenseList = () => {
       dataIndex: "",
       key: "x",
       render: () => <button>Delete</button>,
-      
     },
   ];
-  const data = [
+  const thingdata = [
     {
       key: "1",
       text: "Expense A",
@@ -78,7 +94,7 @@ const ExpenseList = () => {
           paddingTop: 20,
         }}
         columns={columns}
-        dataSource={data}
+        dataSource={tableArray}
         onChange={onChange}
       />
       <h2>Total Expense</h2>

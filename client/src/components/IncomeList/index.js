@@ -17,8 +17,8 @@ const IncomeList = () => {
   console.log("income array", originalIncomeArray);
 
   let tableArray = originalIncomeArray?.map((item) => {
-    for (var i = 0; i < originalIncomeArray.length; i++) {
-    }
+    // for (var i = 0; i < originalIncomeArray.length; i++) {
+    // }
     return {
       key: item.createdAt,
       text: item.text,
