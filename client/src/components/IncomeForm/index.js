@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_INCOME } from "../../utils/mutations";
-import { Button, Form, Input, InputNumber, Table, Modal } from "antd";
+import { Button, Form, Input, InputNumber, Modal } from "antd";
 const IncomeForm = () => {
   const [addIncome, { error }] = useMutation(ADD_INCOME);
   console.log("income form error", error);
@@ -27,14 +27,15 @@ const IncomeForm = () => {
     <div>
       <Form
         name="basic"
+        layout="vertical"
         labelCol={{
-          span: 8,
+          span: 12,
         }}
         wrapperCol={{
           span: 16,
         }}
         style={{
-          // maxWidth: 600,
+          maxWidth: 600,
           paddingTop: 20,
         }}
         initialValues={{
