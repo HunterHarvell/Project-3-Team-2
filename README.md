@@ -58,13 +58,6 @@ genferrari@gmail.com<br/>
 
 # Visuals
 
-[Login Page Screenshot](./assets/loginPageScreenshot.jpg)<br/>
-[Member SIgn Up Screenshot](./assets/SIGNUPScreenshot.jpg)<br/>
-[How Are You Feeling Screenshot](./assets/FeelingsScreenshot.jpg)<br/>
-[Length Of Activity Quiz Screenshot](./assets/timeQuizScreenshot.jpg)<br/>
-[Activity Cards Screenshot](./assets/activitiesScreenshot.jpg)<br/>
-[Activity Timer Screenshot](./assets/timerScreenshot.jpg)<br/>
-[BOB Congratulations Screenshot](./assets/BOBCongratsScreenshot.jpg)<br/>
 
 ## License
 
