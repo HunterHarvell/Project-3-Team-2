@@ -60,7 +60,6 @@ const IncomeList = () => {
   return (
     //This table will create new pagnation if there are more than 10 items//
     <div>
-      <h2>Income List</h2>
       <Table
         style={{
           // maxWidth: 600,
@@ -69,8 +68,8 @@ const IncomeList = () => {
         columns={columns}
         dataSource={tableArray}
         onChange={onChange}
+        pagination={{ pageSize: 20 }} 
       />
-      <h2>Total Income</h2>
     </div>
   );
 };
