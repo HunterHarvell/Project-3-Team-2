@@ -25,11 +25,12 @@ const IncomeForm = () => {
   };
   return (
     <div>
+      <h2>Log your Incomes here</h2>
       <Form
         name="basic"
-        layout="vertical"
+        // layout="vertical"
         labelCol={{
-          span: 12,
+          span: 8,
         }}
         wrapperCol={{
           span: 16,

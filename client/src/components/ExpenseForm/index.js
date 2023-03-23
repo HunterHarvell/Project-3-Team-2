@@ -24,6 +24,7 @@ const ExpenseForm = () => {
   };
   return (
     <div>
+      <h2>Log your expenses here</h2>
       <Form
         name="basic"
         labelCol={{
@@ -34,6 +35,7 @@ const ExpenseForm = () => {
         }}
         style={{
           maxWidth: 600,
+          paddingTop: 20,
         }}
         initialValues={{
           remember: true,

@@ -1,7 +1,7 @@
 import { Button, Modal, Card, Space } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-const TotalIncomeModal = () => {
+const TotalExpenseModal = () => {
   const [open, setOpen] = useState(false);
   return (
     <div
@@ -18,7 +18,7 @@ const TotalIncomeModal = () => {
         style={{ background: "#ffc34d", borderColor: "#ffc34d",
       }}
       >
-        Click to see your total income
+        Click to see your total expense
       </Button>
       <Modal
         centered
@@ -46,7 +46,7 @@ const TotalIncomeModal = () => {
           }}
         >
           <Card size="large">
-            <h2>Total Income =</h2>
+            <h2>Total Expense =</h2>
             <h1>20,000 $</h1>
           </Card>
         </Space>
@@ -54,4 +54,4 @@ const TotalIncomeModal = () => {
     </div>
   );
 };
-export default TotalIncomeModal;
+export default TotalExpenseModal;

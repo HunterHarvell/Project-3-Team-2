@@ -96,6 +96,7 @@ const ExpenseList = () => {
         columns={columns}
         dataSource={tableArray}
         onChange={onChange}
+        pagination={{ pageSize: 10 }} 
       />
       <h2>Total Expense</h2>
     </div>
