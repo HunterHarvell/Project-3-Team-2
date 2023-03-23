@@ -17,8 +17,7 @@ const IncomeList = () => {
   console.log("income array", originalIncomeArray);
 
   let tableArray = originalIncomeArray?.map((item) => {
-    // for (var i = 0; i < originalIncomeArray.length; i++) {
-    // }
+
     return {
       key: item.createdAt,
       text: item.text,
@@ -60,6 +59,7 @@ const IncomeList = () => {
   return (
     //This table will create new pagnation if there are more than 10 items//
     <div>
+      <h2>Income List</h2>
       <Table
         style={{
           // maxWidth: 600,
@@ -68,8 +68,9 @@ const IncomeList = () => {
         columns={columns}
         dataSource={tableArray}
         onChange={onChange}
-        pagination={{ pageSize: 20 }} 
+        pagination={{ pageSize: 10 }} 
       />
+      <h2>Total Income</h2>
     </div>
   );
 };
