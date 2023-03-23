@@ -18,10 +18,14 @@ function Jumbotron({ children }) {
             clear: "both",
             paddingTop: 120,
             textAlign: "center",
+            textColor: "#267D9C",
+            background: "#ffc34d",
+            borderColor: "#ffc34d",
           }}
         >
           <h1>
             {/* Hello {$firstName}! Wecome to your {$businessName} Page! */}
+            <h3>Hello! Welcome to your business page</h3>
           </h1>
 
           {children}
@@ -43,7 +47,7 @@ function Jumbotron({ children }) {
           <ul className="flex-row">
             <ul className="mx-1">
               <card>
-                <p>Welcome! We're so glad you're here</p>
+                <h3>Welcome! We're so glad you're here</h3>
               </card>
             </ul>
           </ul>
