@@ -61,7 +61,13 @@ genferrari@gmail.com<br/>
 
 # Visuals
 
-- [Screenshot of Landing Page]() _ [Screenshot of Login Page]() _ [Screenshot of Reports Page]() _ [Screenshot of Expenses Page]() _ [Screenshot of Income Page]() \* [Screenshot of Signup Page]()
+- [Screenshot of Landing Page](./client/src/assets/intialPageScreenShot.png)
+- [Screenshot of Logged-in Landing Page](./client/src/assets/logginLandingPage.png)
+- [Screenshot of Login Page](./client/src/assets/loginPageScreenShot.png)
+- [Screenshot of Signup Page](./client/src/assets/signupScreenShot.png)
+- [Screenshot of Reports Page](./client/src/assets/reportScreenShot.png)
+- [Screenshot of Expenses Page](./client/src/assets/expensesScreenShot.png)
+- [Screenshot of Income Page](./client/src/assets/incomeScreenShot.png)
 
 ## License
 
