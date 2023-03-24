@@ -1,11 +1,15 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_INCOME } from "../../utils/mutations";
-import { Button, Form, Input, InputNumber, Table, Modal } from "antd";
+import { Button, Form, Input, InputNumber, Modal } from "antd";
 const IncomeForm = () => {
   const [addIncome, { error }] = useMutation(ADD_INCOME);
   console.log("income form error", error);
+
+  const [form] = Form.useForm();
+  
   const onFinish = async (values) => {
+    resetPage();
     console.log(values);
     const incomeText = values.incomeText;
     const incomeAmount = parseInt(values.incomeAmount);
@@ -18,15 +22,24 @@ const IncomeForm = () => {
         amount: incomeAmount,
       },
     });
+    form.resetFields();
     console.log(mutationResponse);
   };
+
+  const resetPage = () => {
+    window.location.reload();
+  };
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
     <div>
+      <h2>Log your Incomes here</h2>
       <Form
+        form={form}
         name="basic"
+        // layout="vertical"
         labelCol={{
           span: 8,
         }}
@@ -34,7 +47,7 @@ const IncomeForm = () => {
           span: 16,
         }}
         style={{
-          // maxWidth: 600,
+          maxWidth: 600,
           paddingTop: 20,
         }}
         initialValues={{

@@ -6,15 +6,38 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return await User.find();
+    users: async () => {
+      console.log("hitting user query");
+      const users = await User.find();
+      console.log({ users });
+      return users;
     },
-    income: async () => {
-      return await Income.find();
-    },
-    expense: async () => {
-      return await Expense.find();
-    },
+    singleUser: async (parent, args, context) => {
+      if (context.user) {
+        // const user = await User.findById("64162ceb3b60454e221a6bb3")
+        const userIncome = await User.findById(context.user._id)
+          .populate("income")
+          .populate("expense");
+        console.log("getting single user", {userIncome}, "Income", userIncome.income);
+        return userIncome;
+    }
+      },
+      // income: async () => {
+        // if (context.user) {
+          // const userIncome = await User.findById("64162ceb3b60454e221a6bb3")
+    //       const userIncome = await User.findById(context.user._id)
+    //         .populate("income")
+    //         .populate("expense");
+    //       console.log("getting single user", {userIncome}, "Income", userIncome.income);
+    //       return userIncome.income;
+    //   // }
+    //     },
+    // income: async () => {
+    //   return await User.find().populate("income");
+    // },
+    // expense: async () => {
+    //   return await Expense.find();
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -103,7 +126,6 @@ const resolvers = {
       );
     },
     deleteIncome: async (parent, { text, amount }) => {
-
       return await Income.findByIdAndUpdate(
         text,
         { $pull: { income: amount } },
@@ -127,7 +149,6 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError("You need to be logged in!");
     // },
-
 
     deleteExpense: async (parent, { text, amount }) => {
       return await Expense.findByIdAndUpdate(

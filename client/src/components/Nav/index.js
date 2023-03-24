@@ -45,7 +45,7 @@ function Nav() {
           <span role="img" aria-label="money face">
             💸
           </span>
-          SideHussle
+          SideHustle
         </Link>
       </h1>
 

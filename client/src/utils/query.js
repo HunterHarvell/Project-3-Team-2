@@ -10,20 +10,34 @@ export const GET_USER = gql`
     }
   }
 `;
+
 export const GET_INCOME = gql`
-  query income {
-    income {
-      text
-      amount
+  query getIncome {
+    singleUser {
+      _id
+      firstName
+      businessName
+      email
+      income {
+        amount
+        createdAt
+        text
+      }
     }
   }
 `;
 
 export const GET_EXPENSE = gql`
-  query expense {
-    expense {
-      text
-      amount
+  query getExpense {
+    singleUser {
+      _id
+      firstName
+      businessName
+      expense {
+        amount
+        createdAt
+        text
+      }
     }
   }
 `;
