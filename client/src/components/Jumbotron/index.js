@@ -12,8 +12,7 @@ import { GET_EXPENSE } from "../../utils/query";
 function Jumbotron({ children }) {
   const { data } = useQuery(GET_EXPENSE);
   console.log(data);
-  // const userData = data?.singleUser || [];
-  const userData = data.singleUser
+  const userData = data?.singleUser || [];
   console.log(userData);
   const userFirstName = userData.firstName
   const businessName = userData.businessName

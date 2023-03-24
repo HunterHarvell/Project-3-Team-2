@@ -1,5 +1,5 @@
 import React from "react";
-import ReportCard from "../components/ReportCard/index";
+import ReportCard from "../components/ReportCard";
 const Report = () => {
   return (
     <div className="container">

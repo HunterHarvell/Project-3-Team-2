@@ -1,51 +1,42 @@
-import { Avatar, Card, Col, Row } from "antd";
-const { Meta } = Card;
-const reportCard = () => (
-  <Row gutter={16}>
-    <Col span={12}>
-      <Card
-        title="Total Income"
-        bordered={false}
-        style={{
-          width: 300,
-          padding: 20,
-        }}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
-      >
-        <Meta
-          avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
-          title="Card title"
-          description="This is the description"
-        />
-      </Card>
-    </Col>
-    <Col span={12}>
-      <Card
-        title="Total Income"
-        bordered={false}
-        style={{
-          width: 300,
-          padding: 20,
-        }}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
-      >
-        <Meta
-          avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
-          title="Card title"
-          description="This is the description"
-        />
-      </Card>
-    </Col>
-  </Row>
-);
-export default reportCard;
+import React from "react";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import { Card, Col, Row, Statistic } from "antd";
+
+const ReportCard = () => {
+  return (
+    <div>
+      <Row gutter={16}>
+        <Col span={12}>
+          <Card bordered={false}>
+            <Statistic
+              title="Income"
+              value={1000}
+              precision={2}
+              valueStyle={{
+                color: "#3f8600",
+              }}
+              prefix={<PlusOutlined />}
+              suffix="$"
+            />
+          </Card>
+        </Col>
+        <Col span={12}>
+          <Card bordered={false}>
+            <Statistic
+              title="Expense"
+              value={300}
+              precision={2}
+              valueStyle={{
+                color: "#cf1322",
+              }}
+              prefix={<MinusOutlined />}
+              suffix="$"
+            />
+          </Card>
+        </Col>
+      </Row>
+      <h1>Your Profit = 700$</h1>
+    </div>
+  );
+};
+export default ReportCard;
