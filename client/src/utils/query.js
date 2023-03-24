@@ -15,6 +15,8 @@ export const GET_INCOME = gql`
   query getIncome {
     singleUser {
       _id
+      firstName
+      businessName
       email
       income {
         amount
@@ -29,6 +31,8 @@ export const GET_EXPENSE = gql`
   query getExpense {
     singleUser {
       _id
+      firstName
+      businessName
       expense {
         amount
         createdAt

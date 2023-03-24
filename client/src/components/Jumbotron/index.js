@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../../utils/auth";
+import { useQuery } from "@apollo/client";
+import { GET_EXPENSE } from "../../utils/query";
 // import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 // import CardContent from '@mui/material/CardContent';
@@ -8,7 +10,18 @@ import Auth from "../../utils/auth";
 // import Typography from '@mui/material/Typography';
 
 function Jumbotron({ children }) {
+  const { data } = useQuery(GET_EXPENSE);
+  console.log(data);
+  // const userData = data?.singleUser || [];
+  const userData = data.singleUser
+  console.log(userData);
+  const userFirstName = userData.firstName
+  const businessName = userData.businessName
+
+  console.log(userFirstName, businessName)
   function loginJumbotron() {
+  
+
     if (Auth.loggedIn()) {
       return (
         // <div class="container"></div>
@@ -24,8 +37,8 @@ function Jumbotron({ children }) {
           }}
         >
           <h1>
-            {/* Hello {$firstName}! Wecome to your {$businessName} Page! */}
-            <h3>Hello! Welcome to your business page</h3>
+            Hello {userFirstName}! Wecome to your {businessName} Page!
+            {/* <h3>Hello! Welcome to your business page</h3> */}
           </h1>
 
           {children}
